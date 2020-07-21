@@ -167,7 +167,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
                         postgresql-${version}-repack \
                         postgresql-${version}-wal2json" \
                 && if [ "$WITH_PERL" = "true" ]; then \
-                    EXTRAS="$EXTRAS postgresql-plperl-${version}"; \
+                    EXTRAS="$EXTRAS postgresql-plperl-${version} \
+                        postgresql-${version}-pgtap"; \
                 fi \
                 && if [ ${version%.*} -lt 11 ]; then \
                     EXTRAS="$EXTRAS postgresql-${version}-amcheck"; \
